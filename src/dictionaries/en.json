@@ -1,0 +1,217 @@
+{
+  "navigation": {
+    "logo": "Arixv",
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact",
+    "cta": "Start a Project"
+  },
+  "home": {
+    "heroTitle": "We design web experiences that turn *visitors into clients.*",
+    "heroSubtitle": "At ARIXV we design and develop websites, ecommerce platforms and digital solutions strategically built to grow your business.",
+    "cta": "Start a Project",
+    "secondaryCta": "View projects"
+  },
+  "services": {
+    "badge": "Our services",
+    "title": "Digital solutions built to scale with your business.",
+    "subtitle": "We create fast, scalable and strategically designed web experiences that help companies grow and stand out online.",
+    "cta": "Request service",
+    "items": {
+      "dev": {
+        "title": "Web Development",
+        "desc": "We build fast, secure and scalable websites using modern technologies to ensure long-term performance and reliability."
+      },
+      "ecommerce": {
+        "title": "Ecommerce",
+        "desc": "We develop conversion-focused ecommerce platforms with seamless checkout experiences designed to increase sales."
+      },
+      "design": {
+        "title": "Web Design",
+        "desc": "We design modern, intuitive and visually refined interfaces that communicate your brand and improve user experience."
+      },
+      "maintenance": {
+        "title": "Website Maintenance",
+        "desc": "We keep your website updated, secure and performing at its best through continuous monitoring and technical support."
+      }
+    }
+  },
+  "portfolio": {
+    "badge": "Portfolio",
+    "title": "Projects that create digital impact.",
+    "subtitle": "Each project reflects our strategic approach, combining design, technology, and real business objectives.",
+    "viewProject": "View project",
+    "startProject": "Start a project",
+    "projects": [
+      {
+        "title": "AFTER HOUSE",
+        "category": "Web Development",
+        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://afterhouse.com.mx/"
+      },
+      {
+        "title": "AFTER HOUSE",
+        "category": "Web Development",
+        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://mirodeoncando.fun"
+      },
+      {
+        "title": "AFTER HOUSE",
+        "category": "Web Development",
+        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://mirodeoncando.fun"
+      },
+      {
+        "title": "AFTER HOUSE",
+        "category": "Web Development",
+        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://mirodeoncando.fun"
+      }
+    ]
+  },
+  "process": {
+    "badge": "Our process",
+    "title": "How we bring ideas to life.",
+    "subtitle": "A clear and collaborative workflow designed to deliver outstanding results at every stage.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery",
+        "desc": "We analyze your business, goals and audience to define a clear digital strategy."
+      },
+      {
+        "number": "02",
+        "title": "Architecture & Planning",
+        "desc": "We design the project structure, key features and technical foundation for scalability."
+      },
+      {
+        "number": "03",
+        "title": "Development",
+        "desc": "We build the solution using modern technologies focused on performance and security."
+      },
+      {
+        "number": "04",
+        "title": "Launch & Support",
+        "desc": "We test, deploy and provide ongoing support to ensure long-term success."
+      }
+    ]
+  },
+  "about": {
+    "badge": "About",
+    "title": "Technology, design and strategy in one team.",
+    "description": "We are a digital studio focused on building custom web experiences. We combine art direction, modern engineering and strategic thinking to create fast, scalable platforms designed for real results.",
+    "pillars": [
+      {
+        "title": "Custom Code",
+        "desc": "We develop tailored solutions using modern technologies to achieve maximum performance."
+      },
+      {
+        "title": "Purpose-Driven Design",
+        "desc": "Every visual decision supports communication goals and user experience."
+      },
+      {
+        "title": "Results-Focused",
+        "desc": "We build digital platforms designed to convert visitors into business opportunities."
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Frequently Asked Questions",
+    "title": "We answer your questions",
+    "moreQuestions": "Do you have another question?",
+    "ctaText": "Let's talk",
+    "items": [
+      {
+        "question": "How long does it take to develop a website?",
+        "answer": "It depends on the scope of the project. A landing page can take around 2 weeks, while a complete corporate website typically takes between 4 and 6 weeks to design, develop, and optimize."
+      },
+      {
+        "question": "What technologies do you use?",
+        "answer": "We work with different technologies depending on each project's needs. We build modern solutions using Next.js, React, and Tailwind CSS, and also implement platforms such as WordPress, Shopify, and other tools when the project requires it."
+      },
+      {
+        "question": "Will the website be mobile-friendly?",
+        "answer": "Yes. We follow a Mobile-First approach to ensure an optimal experience across smartphones, tablets, and desktop devices."
+      },
+      {
+        "question": "Do you offer post-launch maintenance?",
+        "answer": "Yes, we provide maintenance and support plans to keep your website updated, secure, and running at peak performance."
+      }
+    ]
+  },
+  "testimonials": {
+  "badge": "Testimonials",
+  "title": "What our clients say",
+  "items": [
+    {
+      "content": "The level of detail and technical execution was outstanding. The team fully understood our vision and delivered a high-performance digital experience.",
+      "author": "Alex Rivera",
+      "role": "Project Manager"
+    },
+    {
+      "content": "Working with ARIXV transformed how we approach our digital presence. The speed, communication, and final quality exceeded our expectations.",
+      "author": "Sofia Chen",
+      "role": "Founder"
+    },
+    {
+      "content": "A highly professional team with strong design and engineering capabilities. The entire process was smooth, structured, and results-driven.",
+      "author": "Marcus Thorne",
+      "role": "Tech Lead"
+    }
+  ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's build something together.",
+    "description": "Tell us about your project. From premium landing pages to complex platforms, we're ready to help.",
+    "form": {
+      "namePlaceholder": "Your full name",
+      "emailPlaceholder": "Your email address",
+      "servicePlaceholder": "What service do you need?",
+      "messagePlaceholder": "Tell us about your project...",
+      "submitText": "Send message"
+    },
+    "contactInfo": {
+      "email": "Email us directly",
+      "social": "Follow us"
+    }
+  },
+  "footer": {
+    "brand": "ARIXV",
+    "description": "Boutique web development and high-performance digital experiences combining premium aesthetics and clean engineering.",
+    "sections": {
+      "navigation": {
+        "title": "Explore",
+        "links": [
+          { "label": "Services", "href": "#services" },
+          { "label": "Portfolio", "href": "#portfolio" },
+          { "label": "Process", "href": "#process" },
+          { "label": "Testimonials", "href": "#testimonials" }
+        ]
+      },
+      "social": {
+        "title": "Connect",
+        "links": [
+          { "label": "Instagram", "href": "https://instagram.com" },
+          { "label": "Facebook", "href": "https://facebook.com" },
+          { "label": "WhatsApp", "href": "https://github.com" }
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacy", "href": "/privacy" },
+          { "label": "Terms", "href": "/terms" }
+        ]
+      }
+    },
+    "copyright": "All rights reserved."
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "navigation": {
+    "logo": "Arixv",
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "process": "Proceso",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "cta": "Cotizar proyecto"
+  },
+  "home": {
+    "heroTitle": "Diseñamos experiencias web que convierten *visitas en clientes.*",
+    "heroSubtitle": "En ARIXV diseñamos y desarrollamos sitios web, ecommerce y soluciones digitales creadas estratégicamente para impulsar el crecimiento de tu negocio.",
+    "cta": "Cotizar proyecto",
+    "secondaryCta": "Ver proyectos"
+  },
+  "services": {
+    "badge": "Nuestros servicios",
+    "title": "Soluciones digitales diseñadas para crecer contigo.",
+    "subtitle": "Creamos experiencias web rápidas, escalables y pensadas estratégicamente para ayudar a las empresas a destacar y crecer en el entorno digital.",
+    "cta": "Solicitar servicio",
+    "items": {
+      "dev": {
+        "title": "Desarrollo Web",
+        "desc": "Construimos sitios web rápidos, seguros y escalables utilizando tecnologías modernas que garantizan alto rendimiento y estabilidad a largo plazo."
+      },
+      "ecommerce": {
+        "title": "Tiendas en línea",
+        "desc": "Desarrollamos plataformas ecommerce enfocadas en la conversión, con procesos de compra simples y experiencias optimizadas para aumentar ventas."
+      },
+      "design": {
+        "title": "Diseño Web",
+        "desc": "Diseñamos interfaces modernas, intuitivas y visualmente atractivas que comunican la identidad de tu marca y mejoran la experiencia del usuario."
+      },
+      "maintenance": {
+        "title": "Mantenimiento Web",
+        "desc": "Mantenemos tu sitio actualizado, seguro y funcionando correctamente mediante monitoreo continuo, optimización de rendimiento y soporte técnico especializado."
+      }
+    }
+  },
+  "portfolio": {
+    "badge": "Portafolio",
+    "title": "Proyectos que generan impacto digital.",
+    "subtitle": "Cada proyecto refleja nuestro enfoque estratégico combinando diseño, tecnología y objetivos de negocio reales.",
+    "viewProject": "Ver proyecto",
+    "startProject": "Iniciar un proyecto",
+    "projects": [
+      {
+        "title": "AFTER HOUSE",
+        "category": "Desarrollo Web",
+        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://afterhouse.com.mx/"
+      },
+      {
+        "title": "AFTER HOUSE",
+        "category": "Desarrollo Web",
+        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://mirodeoncando.fun"
+      },
+      {
+        "title": "AFTER HOUSE",
+        "category": "Desarrollo Web",
+        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://mirodeoncando.fun"
+      },
+      {
+        "title": "AFTER HOUSE",
+        "category": "Desarrollo Web",
+        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
+        "image": "/images/portfolio/project-1.webp",
+        "link": "https://mirodeoncando.fun"
+      }
+    ]
+  },
+  "process": {
+    "badge": "Nuestro proceso",
+    "title": "Cómo transformamos ideas en productos digitales.",
+    "subtitle": "Un proceso claro, estratégico y colaborativo diseñado para garantizar resultados sólidos en cada proyecto.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Descubrimiento",
+        "desc": "Analizamos tu negocio, objetivos y audiencia para definir una estrategia digital clara."
+      },
+      {
+        "number": "02",
+        "title": "Arquitectura y planificación",
+        "desc": "Diseñamos la estructura del proyecto, funcionalidades clave y base técnica necesaria para escalar."
+      },
+      {
+        "number": "03",
+        "title": "Desarrollo",
+        "desc": "Construimos la solución utilizando tecnologías modernas priorizando rendimiento, seguridad y estabilidad."
+      },
+      {
+        "number": "04",
+        "title": "Lanzamiento y soporte",
+        "desc": "Realizamos pruebas, publicamos el proyecto y ofrecemos soporte continuo para asegurar su evolución."
+      }
+    ]
+  },
+  "about": {
+    "badge": "Nosotros",
+    "title": "Tecnología, diseño y estrategia en un solo equipo.",
+    "description": "Somos un estudio digital enfocado en crear experiencias web a medida. Combinamos dirección de arte, ingeniería moderna y pensamiento estratégico para desarrollar plataformas rápidas, escalables y diseñadas para generar resultados reales.",
+    "pillars": [
+      {
+        "title": "Código a medida",
+        "desc": "Desarrollamos soluciones personalizadas utilizando tecnologías modernas para lograr máximo rendimiento."
+      },
+      {
+        "title": "Diseño con propósito",
+        "desc": "Cada decisión visual responde a objetivos reales de comunicación y experiencia de usuario."
+      },
+      {
+        "title": "Enfoque a resultados",
+        "desc": "Creamos plataformas digitales pensadas para convertir visitas en oportunidades de negocio."
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Preguntas frecuentes",
+    "title": "Resolvemos tus dudas",
+    "moreQuestions": "¿Tienes alguna otra pregunta?",
+    "ctaText": "Hablemos",
+    "items": [
+      {
+        "question": "¿Cuánto tiempo toma desarrollar un sitio web?",
+        "answer": "Depende del alcance del proyecto. Una landing page puede tomar alrededor de 2 semanas, mientras que un sitio corporativo completo suele desarrollarse entre 4 y 6 semanas."
+      },
+      {
+        "question": "¿Qué tecnologías utilizan?",
+        "answer": "Trabajamos con diferentes tecnologías según las necesidades del proyecto. Desarrollamos soluciones modernas con Next.js, React y Tailwind CSS, además de implementar plataformas como WordPress, Shopify y otras herramientas cuando el proyecto lo requiere."
+      },
+      {
+        "question": "¿El sitio será compatible con móviles?",
+        "answer": "Sí. Aplicamos un enfoque Mobile-First asegurando una experiencia óptima en smartphones, tablets y computadoras."
+      },
+      {
+        "question": "¿Ofrecen mantenimiento después del lanzamiento?",
+        "answer": "Sí, contamos con planes de mantenimiento y soporte para mantener tu sitio actualizado, seguro y funcionando correctamente."
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Lo que dicen nuestros clientes",
+    "items": [
+      {
+        "content": "La atención al detalle y la ejecución técnica fueron excepcionales. Entendieron perfectamente nuestra visión.",
+        "author": "Alex Rivera",
+        "role": "Project Manager"
+      },
+      {
+        "content": "La calidad del producto final superó nuestras expectativas. Un equipo altamente profesional.",
+        "author": "Sofia Chen",
+        "role": "Founder"
+      },
+      {
+        "content": "Proceso claro, comunicación constante y resultados de alto nivel.",
+        "author": "Marcus Thorne",
+        "role": "Tech Lead"
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Contacto",
+    "title": "Hablemos sobre tu proyecto.",
+    "description": "Cuéntanos qué necesitas construir. Desde landing pages premium hasta plataformas complejas, estamos listos para ayudarte.",
+    "form": {
+      "namePlaceholder": "Tu nombre completo",
+      "emailPlaceholder": "Tu correo electrónico",
+      "servicePlaceholder": "¿Qué servicio necesitas?",
+      "messagePlaceholder": "Cuéntanos sobre tu proyecto...",
+      "submitText": "Enviar mensaje"
+    },
+    "contactInfo": {
+      "email": "Escríbenos directamente",
+      "social": "Síguenos"
+    }
+  },
+  "footer": {
+    "brand": "ARIXV",
+    "description": "Desarrollo web boutique y experiencias digitales de alto rendimiento. Diseñamos plataformas que combinan estética premium y código impecable.",
+    "sections": {
+      "navigation": {
+        "title": "Explorar",
+        "links": [
+          { "label": "Servicios", "href": "#servicios" },
+          { "label": "Portafolio", "href": "#portafolio" },
+          { "label": "Proceso", "href": "#proceso" },
+          { "label": "Testimonios", "href": "#testimonios" }
+        ]
+      },
+      "social": {
+        "title": "Conectar",
+        "links": [
+          { "label": "Instagram", "href": "https://instagram.com" },
+          { "label": "Facebook", "href": "https://facebook.com" },
+          { "label": "WhatsApp", "href": "https://github.com" }
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "links": [
+          { "label": "Privacidad", "href": "/privacidad" },
+          { "label": "Términos", "href": "/terminos" }
+        ]
+      }
+    },
+    "copyright": "Todos los derechos reservados."
+  }
+}
