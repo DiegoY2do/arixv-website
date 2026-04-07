@@ -3,7 +3,7 @@
     "logo": "Arixv",
     "home": "Inicio",
     "services": "Servicios",
-    "portfolio": "Portafolio",
+    "portfolio": "Proyectos",
     "process": "Proceso",
     "about": "Nosotros",
     "contact": "Contacto",
@@ -40,7 +40,7 @@
     }
   },
   "portfolio": {
-    "badge": "Portafolio",
+    "badge": "Proyectos",
     "title": "Proyectos que generan impacto digital.",
     "subtitle": "Cada proyecto refleja nuestro enfoque estratégico combinando diseño, tecnología y objetivos de negocio reales.",
     "viewProject": "Ver proyecto",
