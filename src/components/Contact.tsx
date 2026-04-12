@@ -14,27 +14,25 @@ interface ContactProps {
       servicePlaceholder: string;
       messagePlaceholder: string;
       submitText: string;
-      submittingText: string; // NUEVO
-      privacyLabel: string;   // NUEVO
-      privacyLink: string;    // NUEVO
+      submittingText: string;
+      privacyLabel: string;
+      privacyLink: string;
     };
     contactInfo: {
       email: string;
       social: string;
     };
   };
-  lang: string; // Necesitamos el idioma para el link de privacidad
+  lang: string;
 }
 
 export default function Contact({ dict, lang }: ContactProps) {
-  // Enlaces sociales
   const socialLinks = [
     { name: "Instagram", url: "https://www.instagram.com/arixv21/" },
     { name: "Facebook", url: "https://www.facebook.com/profile.php?id=61572553050464" },
     { name: "WhatsApp", url: "https://api.whatsapp.com/send/?phone=525621434770&text=Hola%2C+estoy+interesado+en+desarrollar+un+sitio+web+y+me+gustar%C3%ADa+conocer+c%C3%B3mo+pueden+ayudarme.&type=phone_number&app_absent=0" }
   ];
 
-  // 1. ESTADO DEL FORMULARIO (Preparación para Backend)
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -44,22 +42,43 @@ export default function Contact({ dict, lang }: ContactProps) {
     privacyAccepted: false,
   });
 
-  // 2. MANEJADOR DE ENVÍO
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // AQUÍ IRÁ TU LÓGICA DE BACKEND
-    // Ejemplo: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
-    
-    console.log("Datos listos para enviar al backend:", formData);
+    try {
+      // CONEXIÓN REAL AL BACKEND
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Simulamos un retraso de red para que veas el efecto del botón
-    setTimeout(() => {
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error del servidor');
+      }
+
+      // ÉXITO: Limpiamos el formulario y mostramos alerta
+      setFormData({
+        name: "",
+        email: "",
+        service: "",
+        message: "",
+        privacyAccepted: false,
+      });
+      
+      alert("¡Mensaje enviado con éxito! Revisaremos tu solicitud.");
+
+    } catch (error) {
+      console.error('Error de envío:', error);
+      alert("Hubo un problema enviando el mensaje. Por favor, intenta de nuevo.");
+    } finally {
       setIsSubmitting(false);
-      // Opcional: Limpiar formulario tras éxito
-      // setFormData({ name: "", email: "", service: "", message: "", privacyAccepted: false });
-    }, 2000);
+    }
   };
 
   return (
@@ -69,7 +88,6 @@ export default function Contact({ dict, lang }: ContactProps) {
       <div className="absolute top-0 left-0 w-full sm:w-3/4 lg:w-1/2 h-full pointer-events-none z-0 bg-[linear-gradient(to_right,#4F6D7A15_1px,transparent_1px),linear-gradient(to_bottom,#4F6D7A15_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_right,black_10%,transparent_100%)]" />
 
       <div className="mx-auto max-w-7xl px-6 relative z-10">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
           
           {/* COLUMNA IZQUIERDA: Información Editorial */}
@@ -112,19 +130,19 @@ export default function Contact({ dict, lang }: ContactProps) {
                     </a>
                   ))}
                 </div>
-
               </div>
             </div>
           </div>
 
           {/* COLUMNA DERECHA: Formulario Sólido */}
           <div className="lg:col-span-7">
-            {/* Agregamos el onSubmit al form */}
             <form onSubmit={handleSubmit} className="flex flex-col border border-zinc-300 bg-white shadow-[20px_20px_0px_0px_rgba(11,15,20,0.03)]">
               
               <div className="border-b border-zinc-300">
                 <input 
                   type="text" 
+                  name="name"
+                  id="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder={dict.form.namePlaceholder}
@@ -137,6 +155,8 @@ export default function Contact({ dict, lang }: ContactProps) {
               <div className="border-b border-zinc-300">
                 <input 
                   type="email" 
+                  name="email"
+                  id="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder={dict.form.emailPlaceholder}
@@ -149,6 +169,8 @@ export default function Contact({ dict, lang }: ContactProps) {
               <div className="border-b border-zinc-300">
                 <input 
                   type="text" 
+                  name="service"
+                  id="service"
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                   placeholder={dict.form.servicePlaceholder}
@@ -159,6 +181,8 @@ export default function Contact({ dict, lang }: ContactProps) {
 
               <div className="border-b border-zinc-300">
                 <textarea 
+                  name="message"
+                  id="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder={dict.form.messagePlaceholder}
@@ -175,15 +199,15 @@ export default function Contact({ dict, lang }: ContactProps) {
                   <div className="relative flex items-center justify-center w-6 h-6 shrink-0 mt-0.5 sm:mt-0">
                     <input 
                       type="checkbox" 
+                      name="privacy"
+                      id="privacy"
                       required
                       checked={formData.privacyAccepted}
                       onChange={(e) => setFormData({ ...formData, privacyAccepted: e.target.checked })}
                       className="peer sr-only" 
                       disabled={isSubmitting}
                     />
-                    {/* Caja visual del checkbox */}
                     <div className="w-full h-full border-2 border-zinc-300 bg-white peer-checked:bg-[#E11D48] peer-checked:border-[#E11D48] transition-colors duration-200" />
-                    {/* Icono de check (solo visible cuando está checked) */}
                     <svg className="absolute w-4 h-4 text-white opacity-0 peer-checked:opacity-100 transition-opacity duration-200 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
