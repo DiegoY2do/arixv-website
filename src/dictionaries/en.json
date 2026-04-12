@@ -176,7 +176,10 @@
       "emailPlaceholder": "Your email address",
       "servicePlaceholder": "What service do you need?",
       "messagePlaceholder": "Tell us about your project...",
-      "submitText": "Send message"
+      "submitText": "Send message",
+      "submittingText": "SENDING...",
+      "privacyLabel": "I have read and agree to the ",
+      "privacyLink": "Privacy Policy"
     },
     "contactInfo": {
       "email": "Email us directly",
@@ -190,28 +193,183 @@
       "navigation": {
         "title": "Explore",
         "links": [
-          { "label": "Services", "href": "#services" },
-          { "label": "Portfolio", "href": "#portfolio" },
-          { "label": "Process", "href": "#process" },
-          { "label": "Testimonials", "href": "#testimonials" }
+          { "label": "Services", "href": "#servicios" },
+          { "label": "Projects", "href": "#portafolio" },
+          { "label": "Process", "href": "#proceso" },
+          { "label": "Testimonials", "href": "#testimonios" }
         ]
       },
       "social": {
         "title": "Connect",
         "links": [
           { "label": "Instagram", "href": "https://instagram.com" },
-          { "label": "Facebook", "href": "https://facebook.com" },
-          { "label": "WhatsApp", "href": "https://github.com" }
+          { "label": "Facebook", "href": "https://www.facebook.com/profile.php?id=61572553050464" },
+          { "label": "WhatsApp", "href": "https://wa.me/525621434770?text=Hola%2C%20quiero%20desarrollar%20un%20proyecto%20web%20y%20me%20interesa%20conocer%20su%20proceso%2C%20tiempos%20y%20costos." }
         ]
       },
       "legal": {
         "title": "Legal",
         "links": [
-          { "label": "Privacy", "href": "/privacy" },
-          { "label": "Terms", "href": "/terms" }
+          { "label": "Privacy notice", "href": "privacidad" },
+          { "label": "Terms and conditions", "href": "terminos" }
         ]
       }
     },
     "copyright": "All rights reserved."
+  },
+    "terms": {
+    "badge": "Legal Document",
+    "title": "Terms and Conditions",
+    "version": "Version 1.1",
+    "lastUpdated": "Last updated: April 2026",
+    "sections": [
+      {
+        "title": "1. Introduction",
+        "paragraphs": [
+          "Welcome to ARIXV. By accessing our website and using our services, you agree to comply with these Terms and Conditions.",
+          "These terms govern the relationship between ARIXV and its clients regarding web development, design, and digital solutions.",
+          "If you do not agree with any part of these terms, you should not use our services."
+        ],
+        "list": []
+      },
+      {
+        "title": "2. Services",
+        "paragraphs": [
+          "ARIXV provides web development, UI/UX design, ecommerce solutions, and website maintenance services.",
+          "Each project is defined through a proposal or agreement outlining scope, deliverables, timelines, and pricing."
+        ],
+        "list": []
+      },
+      {
+        "title": "3. Intellectual Property",
+        "paragraphs": [
+          "All code, design, and digital assets created during the project remain the property of ARIXV until full payment is received.",
+          "Once payment is completed, usage rights of the final product are transferred to the client.",
+          "ARIXV reserves the right to showcase completed projects in its portfolio and promotional materials."
+        ],
+        "list": []
+      },
+      {
+        "title": "4. Workflow and Deliverables",
+        "paragraphs": [
+          "Projects follow a structured workflow including planning, design, development, and delivery phases."
+        ],
+        "list": [
+          "Revisions: The number of revisions is defined in the proposal. Additional changes may incur extra costs.",
+          "Communication: We aim to respond within 24–48 business hours.",
+          "Delivery timelines may vary depending on project complexity and client responsiveness."
+        ]
+      },
+      {
+        "title": "5. Payments",
+        "paragraphs": [
+          "A 50% upfront payment is required to begin any project.",
+          "The remaining 50% must be paid before final delivery or deployment.",
+          "All payments are non-refundable once the project has started."
+        ],
+        "list": []
+      },
+      {
+        "title": "6. Client Responsibilities",
+        "paragraphs": [],
+        "list": [
+          "Provide required content, information, and access credentials on time.",
+          "Review and approve deliverables within agreed timelines.",
+          "Comply with all agreed payments."
+        ]
+      },
+      {
+        "title": "7. Limitation of Liability",
+        "paragraphs": [
+          "ARIXV is not liable for indirect damages, business losses, or service interruptions resulting from the use of delivered products.",
+          "The client is responsible for the final use of the website and compliance with applicable laws."
+        ],
+        "list": []
+      },
+      {
+        "title": "8. Changes to Terms",
+        "paragraphs": [
+          "ARIXV reserves the right to modify these terms at any time. Updates will be published on this page."
+        ],
+        "list": []
+      }
+    ],
+    "contact": {
+      "title": "Questions about these terms?",
+      "text": "You can contact us at",
+      "email": "legal@arixv.com"
+    }
+  },
+    "privacy": {
+    "badge": "Legal Document",
+    "title": "Privacy Policy",
+    "version": "Version 1.1",
+    "lastUpdated": "Last updated: April 2026",
+    "sections": [
+      {
+        "title": "1. Information We Collect",
+        "paragraphs": [
+          "At ARIXV, we respect your privacy. We collect only the information necessary to provide and improve our services.",
+          "This may include your name, email address, project details, and technical browsing data through cookies."
+        ],
+        "list": []
+      },
+      {
+        "title": "2. Use of Information",
+        "paragraphs": [
+          "We use your information for the following purposes:"
+        ],
+        "list": [
+          "To respond to inquiries and project requests.",
+          "To provide and improve our digital services.",
+          "To analyze website usage and enhance user experience.",
+          "To comply with legal and tax obligations."
+        ]
+      },
+      {
+        "title": "3. Data Protection",
+        "paragraphs": [
+          "We implement appropriate technical and organizational measures to protect your personal data.",
+          "We do not sell or share personal data with third parties unless required to deliver services or comply with legal obligations."
+        ],
+        "list": []
+      },
+      {
+        "title": "4. Cookies",
+        "paragraphs": [
+          "Our website uses cookies to improve user experience and analyze traffic.",
+          "You may disable cookies through your browser settings."
+        ],
+        "list": []
+      },
+      {
+        "title": "5. User Rights",
+        "paragraphs": [
+          "You have the right to access, correct, or delete your personal data at any time.",
+          "You may also object to the processing of your data or request its removal from our records."
+        ],
+        "list": []
+      },
+      {
+        "title": "6. Legal Compliance (Mexico)",
+        "paragraphs": [
+          "This Privacy Policy complies with the Mexican Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP).",
+          "Users may exercise their ARCO rights (Access, Rectification, Cancellation, and Opposition) by contacting us directly."
+        ],
+        "list": []
+      },
+      {
+        "title": "7. Changes to this Policy",
+        "paragraphs": [
+          "We reserve the right to update this Privacy Policy at any time. Changes will be published on this page."
+        ],
+        "list": []
+      }
+    ],
+    "contact": {
+      "title": "Questions about your data?",
+      "text": "You can contact us at",
+      "email": "legal@arixv.com"
+    }
   }
 }

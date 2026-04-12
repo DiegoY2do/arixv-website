@@ -47,7 +47,7 @@ function AnimatedServiceCard({ children, className = "" }: { children: ReactNode
 
 export default function Services({ dict }: ServicesProps) {
   return (
-    <section id="servicios" className="relative w-full pt-24 pb-32 lg:pt-32 lg:pb-48 bg-[#DBE9EE]/30">
+    <section id="servicios" className="relative w-full pt-24 pb-32 lg:pt-32 lg:pb-48 bg-[#DBE9EE]/20">
       
       {/* FONDO: Cuadrícula técnica desvanecida (Estilo Brutalista) */}
       <div className="absolute top-0 right-0 w-full sm:w-3/4 lg:w-1/2 h-full pointer-events-none z-0 bg-[linear-gradient(to_right,#4F6D7A30_1px,transparent_1px),linear-gradient(to_bottom,#4F6D7A30_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_left,black_10%,transparent_100%)]" />

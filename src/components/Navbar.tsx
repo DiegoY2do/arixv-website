@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
@@ -27,19 +27,43 @@ export default function Navbar({ lang, dict }: NavbarProps) {
   
   const pathname = usePathname();
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
-  const handleLanguageChange = (e: React.MouseEvent<HTMLAnchorElement>, newLang: string) => {
-    e.preventDefault();
+  const handleLanguageChange = (newLang: string) => {
     if (!pathname) return;
     const segments = pathname.split("/");
     segments[1] = newLang;
     const newPath = segments.join("/");
-    const currentHash = window.location.hash;
-    router.push(`${newPath}${currentHash}`, { scroll: false });
+    const currentHash = window.location.hash; 
+    
+    startTransition(() => {
+      router.replace(`${newPath}${currentHash}`, { scroll: false });
+    });
+    
     setIsMenuOpen(false);
   };
 
+  // NUEVA FUNCIÓN: Fuerza el scroll sin importar la URL actual
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    setIsMenuOpen(false); // Siempre cerramos el menú primero
+    
+    // Buscamos la sección en la página actual
+    const elem = document.getElementById(targetId);
+    
+    if (elem) {
+      e.preventDefault(); // Evitamos que Next.js ignore el clic
+      elem.scrollIntoView({ behavior: "smooth" }); // Hacemos el scroll manual
+      
+      // Actualizamos la URL sutilmente para que quede el registro
+      window.history.pushState(null, "", `/${lang}#${targetId}`);
+    }
+    // Si el elemento NO existe (ej. estás en una página de blog y quieres ir a inicio#servicios), 
+    // no hacemos e.preventDefault(), dejando que Next.js navegue normalmente a esa página.
+  };
+
   useEffect(() => {
+    setIsScrolled(window.scrollY > 50);
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 50);
@@ -54,7 +78,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isMenuOpen]);
+  }, [lastScrollY, isMenuOpen, pathname]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -79,16 +103,29 @@ export default function Navbar({ lang, dict }: NavbarProps) {
         className={`fixed top-0 z-[60] w-full transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${
-          isScrolled && !isMenuOpen 
-            ? "py-4 bg-[#05080a]/90 backdrop-blur-xl border-b border-white/5" 
-            : "py-8 bg-transparent"
+          isMenuOpen 
+            ? "py-6 bg-[#0b0f14]"
+            : isScrolled 
+              ? "py-4 bg-[#0b0f14]/90 backdrop-blur-xl " 
+              : "py-8 bg-transparent"
         }`}
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6">
           
           <div className="flex w-1/4 justify-start">
-            <Link href={`/${lang}`} className="group flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
-              <Image src="/logo.svg" alt={dict.logo || "Logo"} width={120} height={32} className="h-7 w-auto object-contain transition-transform group-hover:scale-105" priority />
+            <Link 
+              href={`/${lang}`} 
+              className="group flex items-center gap-2" 
+              onClick={(e) => {
+                if (pathname === `/${lang}`) {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  history.pushState("", document.title, window.location.pathname);
+                }
+                setIsMenuOpen(false);
+              }}
+            >
+              <Image src="/arixv.webp" alt={dict.logo || "Logo"} width={120} height={32} className="h-7 w-auto object-contain transition-transform" priority />
               <span className="h-1.5 w-1.5 bg-[#E11D48] animate-pulse rounded-full" />
             </Link>
           </div>
@@ -97,7 +134,11 @@ export default function Navbar({ lang, dict }: NavbarProps) {
             <ul className="flex items-center gap-10">
               {navItems.map((item, index) => (
                 <li key={index}>
-                  <Link href={`/${lang}#${item.href}`} className="group relative text-[11px] font-black uppercase tracking-[0.2em] text-zinc-400 transition-colors hover:text-white">
+                  <Link 
+                    href={`/${lang}#${item.href}`} 
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className="group relative text-[11px] font-black uppercase tracking-[0.2em] text-zinc-400 transition-colors hover:text-white"
+                  >
                     <span className="mr-1 text-[#E11D48] opacity-0 transition-opacity group-hover:opacity-100">//</span>
                     {item.label}
                     <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-[#E11D48] transition-all group-hover:w-full" />
@@ -110,16 +151,20 @@ export default function Navbar({ lang, dict }: NavbarProps) {
           <div className="flex w-1/4 justify-end items-center gap-8">
             <div className="hidden lg:flex items-center gap-8">
               <div className="flex items-center font-mono text-[10px] font-bold tracking-[0.3em] text-zinc-500">
-                <a href="/es" onClick={(e) => handleLanguageChange(e, 'es')} className={`transition-colors hover:text-[#E11D48] ${lang === 'es' ? 'text-white' : ''}`}>ES</a>
+                <button onClick={() => handleLanguageChange('es')} disabled={isPending} className={`transition-colors hover:text-[#E11D48] ${lang === 'es' ? 'text-white' : ''}`}>ES</button>
                 <span className="mx-2 opacity-10">/</span>
-                <a href="/en" onClick={(e) => handleLanguageChange(e, 'en')} className={`transition-colors hover:text-[#E11D48] ${lang === 'en' ? 'text-white' : ''}`}>EN</a>
+                <button onClick={() => handleLanguageChange('en')} disabled={isPending} className={`transition-colors hover:text-[#E11D48] ${lang === 'en' ? 'text-white' : ''}`}>EN</button>
               </div>
-              <Link href={`/${lang}#contacto`} className="bg-white px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#05080a] transition-all hover:bg-[#E11D48] hover:text-white">
+              <Link 
+                href="https://wa.me/525621434770?text=Hola%2C%20quiero%20desarrollar%20un%20proyecto%20web%20y%20me%20interesa%20conocer%20su%20proceso%2C%20tiempos%20y%20costos." 
+                target="_blank"
+                className="bg-white px-6 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#05080a] transition-all hover:bg-[#E11D48] hover:text-white"
+              >
                 {dict.cta}
               </Link>
             </div>
 
-            {/* HAMBURGUESA: Recupera anchos originales al cerrar */}
+            {/* HAMBURGUESA */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="group flex flex-col items-end justify-center gap-[5px] p-2 focus:outline-none lg:hidden z-[70]"
@@ -133,7 +178,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
         </div>
       </header>
 
-      {/* MENÚ MÓVIL: Con scroll habilitado y padding para evitar cortes */}
+      {/* MENÚ MÓVIL */}
       <div 
         className={`fixed inset-0 z-[55] h-screen w-full bg-[#05080a] overflow-y-auto transition-transform duration-1000 ease-[cubic-bezier(0.85,0,0.15,1)] ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -148,11 +193,11 @@ export default function Navbar({ lang, dict }: NavbarProps) {
               <div key={index} className="overflow-hidden">
                 <Link
                   href={`/${lang}#${item.href}`}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`block text-5xl font-black tracking-tighter text-white transition-all duration-700 hover:text-[#E11D48] ${
                     isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
                   }`}
                   style={{ transitionDelay: `${index * 100 + 300}ms` }}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
@@ -164,15 +209,15 @@ export default function Navbar({ lang, dict }: NavbarProps) {
             <div className="flex items-center justify-between">
               <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500">Language //</span>
               <div className="flex items-center gap-6 text-sm font-black text-white">
-                <a href="/es" onClick={(e) => handleLanguageChange(e, 'es')} className={`${lang === 'es' ? 'text-[#E11D48]' : 'opacity-40'}`}>ES</a>
-                <a href="/en" onClick={(e) => handleLanguageChange(e, 'en')} className={`${lang === 'en' ? 'text-[#E11D48]' : 'opacity-40'}`}>EN</a>
+                <button onClick={() => handleLanguageChange('es')} disabled={isPending} className={`${lang === 'es' ? 'text-[#E11D48]' : 'opacity-40'}`}>ES</button>
+                <button onClick={() => handleLanguageChange('en')} disabled={isPending} className={`${lang === 'en' ? 'text-[#E11D48]' : 'opacity-40'}`}>EN</button>
               </div>
             </div>
 
             <Link
               href={`/${lang}#contacto`}
+              onClick={(e) => handleNavClick(e, 'contacto')}
               className="flex w-full h-20 shrink-0 items-center justify-center bg-white text-[#05080a] text-xs font-black uppercase tracking-[0.3em] hover:bg-[#E11D48] hover:text-white transition-colors"
-              onClick={() => setIsMenuOpen(false)}
             >
               {dict.cta}
             </Link>

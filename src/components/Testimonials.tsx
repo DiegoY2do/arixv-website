@@ -17,7 +17,6 @@ interface TestimonialsProps {
 }
 
 const DURATION = 6000;
-const UPDATE_INTERVAL = 30; 
 
 // BADGE UNIFICADO
 const SectionBadge = ({ children }: { children: React.ReactNode }) => (
@@ -29,35 +28,35 @@ const SectionBadge = ({ children }: { children: React.ReactNode }) => (
 
 export default function Testimonials({ dict }: TestimonialsProps) {
   const [activeIndex, setActiveIndex] = useState(0); 
-  const [progress, setProgress] = useState(0);
 
   const nextTestimonial = useCallback(() => {
     setActiveIndex((current) => (current + 1) % dict.items.length);
-    setProgress(0);
   }, [dict.items.length]);
 
   const prevTestimonial = useCallback(() => {
     setActiveIndex((current) => (current - 1 + dict.items.length) % dict.items.length);
-    setProgress(0);
   }, [dict.items.length]);
 
+  // Temporizador simplificado: Un solo Timeout seguro, sin re-renders constantes
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
-          nextTestimonial();
-          return 0;
-        }
-        return prevProgress + (100 / (DURATION / UPDATE_INTERVAL));
-      });
-    }, UPDATE_INTERVAL);
+    const timer = setTimeout(() => {
+      nextTestimonial();
+    }, DURATION);
 
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   }, [activeIndex, nextTestimonial]);
 
   return (
-    <section id="testimonios" className="relative w-full py-24 lg:py-32 bg-[#0b0f14] border-t border-white/5">
+    <section id="testimonios" className="relative w-full py-24 lg:py-32 bg-[#0b0f14] border-t border-white/5 overflow-hidden">
       
+      {/* Animación CSS inyectada para la barra de progreso */}
+      <style>{`
+        @keyframes fillProgress {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+      `}</style>
+
       {/* FONDO BRUTALISTA */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_center,_#E11D48_1px,_transparent_1px)] bg-[size:32px_32px] opacity-[0.03]" />
 
@@ -84,8 +83,8 @@ export default function Testimonials({ dict }: TestimonialsProps) {
           </div>
         </div>
 
-        {/* CONTENEDOR DE LA CITA */}
-        <div className="relative min-h-[300px] sm:min-h-[250px] lg:min-h-[200px] mb-16">
+        {/* CONTENEDOR DE LA CITA - Usamos alturas fijas exactas (h-) en lugar de mínimas (min-h-) */}
+        <div className="relative h-[380px] sm:h-[280px] lg:h-[240px] mb-16 w-full">
           {dict.items.map((item, index) => (
             <div
               key={index}
@@ -114,13 +113,11 @@ export default function Testimonials({ dict }: TestimonialsProps) {
         {/* PIE DE TESTIMONIO Y CONTROLES */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 pt-8 border-t border-white/10 relative">
           
-          {/* Barra de progreso global */}
+          {/* Barra de progreso global animada con CSS */}
           <div 
-            className="absolute top-[-1px] left-0 h-[1px] bg-[#E11D48] transition-all ease-linear"
-            style={{ 
-              width: `${progress}%`,
-              transitionDuration: `${UPDATE_INTERVAL}ms`
-            }}
+            key={`progress-${activeIndex}`} // El cambio de key reinicia la animación CSS automáticamente
+            className="absolute top-[-1px] left-0 h-[1px] bg-[#E11D48]"
+            style={{ animation: `fillProgress ${DURATION}ms linear forwards` }}
           />
 
           {/* Info del Autor Activo */}
@@ -143,7 +140,7 @@ export default function Testimonials({ dict }: TestimonialsProps) {
           </div>
 
           {/* Flechas de Navegación Cuadradas */}
-          <div className="flex gap-4 shrink-0">
+          <div className="flex gap-4 shrink-0 relative z-20">
             <button 
               onClick={prevTestimonial}
               className="w-12 h-12 flex items-center justify-center border border-white/20 bg-transparent text-white transition-all duration-300 hover:bg-[#E11D48] hover:border-[#E11D48]"
@@ -163,7 +160,6 @@ export default function Testimonials({ dict }: TestimonialsProps) {
           </div>
 
         </div>
-
       </div>
     </section>
   );

@@ -40,6 +40,6 @@ export function middleware(request: NextRequest) {
 // Configuración para que el middleware no se ejecute en lugares innecesarios
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image|icon.ico).*)',
   ],
 };

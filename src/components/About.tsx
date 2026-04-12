@@ -25,7 +25,7 @@ const SectionBadge = ({ children }: { children: React.ReactNode }) => (
 
 export default function About({ dict }: AboutProps) {
   return (
-    <section id="nosotros" className="relative w-full py-24 lg:py-32 bg-[#DBE9EE]/30 border-t border-zinc-300">
+    <section id="nosotros" className="relative w-full py-24 lg:py-32 bg-[#DBE9EE]/20 border-t border-zinc-300">
       
       {/* TEXTURA DE CUADRÍCULA */}
       <div className="absolute top-0 right-0 w-full sm:w-3/4 lg:w-1/2 h-full pointer-events-none z-0 bg-[linear-gradient(to_right,#4F6D7A30_1px,transparent_1px),linear-gradient(to_bottom,#4F6D7A30_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_left,black_10%,transparent_100%)]" />

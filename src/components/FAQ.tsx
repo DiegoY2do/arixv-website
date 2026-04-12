@@ -101,7 +101,8 @@ export default function FAQ({ dict }: FAQProps) {
             </p>
             
             <a 
-              href="#contacto" 
+              href="https://wa.me/525621434770?text=Hola%2C%20quiero%20desarrollar%20un%20proyecto%20web%20y%20me%20interesa%20conocer%20su%20proceso%2C%20tiempos%20y%20costos." 
+              target="_blank"
               className="group relative inline-flex h-16 items-center justify-center px-10 bg-white text-[#05080a] text-[10px] font-black uppercase tracking-[0.3em] transition-all hover:bg-[#E11D48] hover:text-white"
             >
               <span className="relative z-10">{dict.ctaText}</span>

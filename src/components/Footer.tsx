@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface FooterLink {
   label: string;
@@ -22,11 +23,39 @@ interface FooterProps {
 
 export default function Footer({ dict }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  // Función para forzar el scroll suave a las secciones
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    // Si es un enlace externo (como redes sociales) o a otra página diferente, no intervenimos
+    if (targetId.startsWith('http') || targetId.startsWith('mailto')) return;
+    
+    // Si el href es un hash (ej: '#contacto' o '#top')
+    if (targetId.startsWith('#')) {
+      const id = targetId.substring(1); // Quitamos el '#'
+      
+      if (id === 'top') {
+        // Lógica especial para "volver arriba"
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.pushState(null, "", pathname);
+        return;
+      }
+
+      const elem = document.getElementById(id);
+      
+      if (elem) {
+        e.preventDefault();
+        elem.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `${pathname}#${id}`);
+      }
+    }
+  };
 
   return (
     <footer className="relative w-full bg-[#05080a] pt-16 md:pt-24 -mt-[2px] z-10">
       
-      {/* AISLAMIENTO DEL BRILLO: Ahora en tono Carmesí sutil para coherencia */}
+      {/* AISLAMIENTO DEL BRILLO */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#E11D48]/5 blur-[150px] rounded-full" />
       </div>
@@ -57,7 +86,11 @@ export default function Footer({ dict }: FooterProps) {
               <ul className="flex flex-col gap-4">
                 {dict.sections.navigation.links.map((link, i) => (
                   <li key={i}>
-                    <Link href={link.href} className="text-base font-medium text-zinc-300 hover:text-[#E11D48] transition-colors">
+                    <Link 
+                      href={link.href} 
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className="text-base font-medium text-zinc-300 hover:text-[#E11D48] transition-colors"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -73,7 +106,12 @@ export default function Footer({ dict }: FooterProps) {
               <ul className="flex flex-col gap-4">
                 {dict.sections.social.links.map((link, i) => (
                   <li key={i}>
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-base font-medium text-zinc-300 hover:text-[#E11D48] transition-colors">
+                    <a 
+                      href={link.href} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-base font-medium text-zinc-300 hover:text-[#E11D48] transition-colors"
+                    >
                       {link.label}
                     </a>
                   </li>
@@ -89,6 +127,7 @@ export default function Footer({ dict }: FooterProps) {
               <ul className="flex flex-col gap-4">
                 {dict.sections.legal.links.map((link, i) => (
                   <li key={i}>
+                    {/* Asumiendo que los legales llevan a otra página (ej: /privacidad) NO usamos handleNavClick aquí a menos que sean anclas */}
                     <Link href={link.href} className="text-base font-medium text-zinc-300 hover:text-[#E11D48] transition-colors">
                       {link.label}
                     </Link>
@@ -100,7 +139,7 @@ export default function Footer({ dict }: FooterProps) {
           </div>
         </div>
 
-        {/* 2. Título Masivo de Impacto Visual - Gradiente ajustado a Rojo */}
+        {/* 2. Título Masivo */}
         <div className="w-full text-center select-none pointer-events-none border-b border-white/5 pb-6 overflow-hidden">
           <h2 className="text-[18vw] sm:text-[15vw] leading-[0.8] font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-[#E11D48]/5 opacity-90">
             {dict.brand}
@@ -114,15 +153,16 @@ export default function Footer({ dict }: FooterProps) {
           </p>
           
           {/* Botón Volver Arriba */}
-          <a 
+          <Link 
             href="#top" 
+            onClick={(e) => handleNavClick(e, '#top')}
             className="group flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/5 bg-white/[0.02] transition-all hover:bg-[#E11D48]/20 hover:border-[#E11D48]/50 active:scale-95"
             aria-label="Volver arriba"
           >
             <svg className="h-6 w-6 text-zinc-500 transition-transform group-hover:-translate-y-1 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
 
       </div>

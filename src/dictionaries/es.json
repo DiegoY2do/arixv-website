@@ -176,7 +176,10 @@
       "emailPlaceholder": "Tu correo electrónico",
       "servicePlaceholder": "¿Qué servicio necesitas?",
       "messagePlaceholder": "Cuéntanos sobre tu proyecto...",
-      "submitText": "Enviar mensaje"
+      "submitText": "Enviar mensaje",
+      "submittingText": "ENVIANDO...",
+      "privacyLabel": "He leído y acepto la ",
+      "privacyLink": "Política de Privacidad"
     },
     "contactInfo": {
       "email": "Escríbenos directamente",
@@ -191,7 +194,7 @@
         "title": "Explorar",
         "links": [
           { "label": "Servicios", "href": "#servicios" },
-          { "label": "Portafolio", "href": "#portafolio" },
+          { "label": "Proyectos", "href": "#portafolio" },
           { "label": "Proceso", "href": "#proceso" },
           { "label": "Testimonios", "href": "#testimonios" }
         ]
@@ -200,18 +203,147 @@
         "title": "Conectar",
         "links": [
           { "label": "Instagram", "href": "https://instagram.com" },
-          { "label": "Facebook", "href": "https://facebook.com" },
-          { "label": "WhatsApp", "href": "https://github.com" }
+          { "label": "Facebook", "href": "https://www.facebook.com/profile.php?id=61572553050464" },
+          { "label": "WhatsApp", "href": "https://wa.me/525621434770?text=Hola%2C%20quiero%20desarrollar%20un%20proyecto%20web%20y%20me%20interesa%20conocer%20su%20proceso%2C%20tiempos%20y%20costos." }
         ]
       },
       "legal": {
         "title": "Legal",
         "links": [
-          { "label": "Privacidad", "href": "/privacidad" },
-          { "label": "Términos", "href": "/terminos" }
+          { "label": "Aviso de privacidad", "href": "/privacidad" },
+          { "label": "Términos y condiciones", "href": "/terminos" }
         ]
       }
     },
     "copyright": "Todos los derechos reservados."
+  },
+  "terms": {
+      "badge": "Documento Legal",
+      "title": "Términos y Condiciones",
+      "version": "Versión 1.1",
+      "lastUpdated": "Última actualización: Abril 2026",
+      "sections": [
+        {
+          "title": "1. Introducción",
+          "paragraphs": [
+            "Bienvenido a ARIXV. Al acceder y utilizar nuestro sitio web y contratar nuestros servicios, aceptas cumplir con los presentes términos y condiciones.",
+            "Estos términos regulan la relación entre ARIXV y sus clientes en la prestación de servicios de desarrollo web, diseño digital y soluciones tecnológicas.",
+            "Si no estás de acuerdo con alguna parte de estos términos, te recomendamos no utilizar nuestros servicios."
+          ],
+          "list": []
+        },
+        {
+          "title": "2. Servicios",
+          "paragraphs": [
+            "ARIXV ofrece servicios de desarrollo web, diseño de interfaces, ecommerce y mantenimiento de plataformas digitales.",
+            "Cada proyecto será definido mediante una propuesta o acuerdo donde se especifican alcance, tiempos, entregables y costos."
+          ],
+          "list": []
+        },
+        {
+          "title": "3. Propiedad Intelectual",
+          "paragraphs": [
+            "Todo el código, diseño, contenido y activos generados durante el desarrollo son propiedad de ARIXV hasta que el cliente liquide el 100% del pago acordado.",
+            "Una vez completado el pago, los derechos de uso del producto final se transfieren al cliente.",
+            "ARIXV se reserva el derecho de mostrar el proyecto en su portafolio y materiales promocionales."
+          ],
+          "list": []
+        },
+        {
+          "title": "4. Metodología y Entregas",
+          "paragraphs": [
+            "Los proyectos se desarrollan bajo una metodología estructurada que incluye fases de planificación, diseño, desarrollo y entrega."
+          ],
+          "list": [
+            "Revisiones: El número de revisiones está definido en la propuesta. Cambios adicionales pueden generar costos extra.",
+            "Comunicación: El equipo responderá en un plazo máximo de 24 a 48 horas hábiles.",
+            "Entregas: Los tiempos estimados pueden variar según la complejidad del proyecto y la disponibilidad de información por parte del cliente."
+          ]
+        },
+        {
+          "title": "5. Pagos y Facturación",
+          "paragraphs": [
+            "Para iniciar cualquier proyecto se requiere un anticipo del 50% del costo total.",
+            "El 50% restante deberá liquidarse antes de la entrega final o publicación del proyecto.",
+            "Los pagos realizados no son reembolsables una vez iniciado el proyecto."
+          ],
+          "list": []
+        },
+        {
+          "title": "6. Responsabilidades del Cliente",
+          "paragraphs": [],
+          "list": [
+            "Proporcionar información, contenido y accesos necesarios en tiempo y forma.",
+            "Revisar y aprobar entregables dentro de los tiempos establecidos.",
+            "Cumplir con los pagos acordados."
+          ]
+        },
+        {
+          "title": "7. Limitación de Responsabilidad",
+          "paragraphs": [
+            "ARIXV no será responsable por pérdidas indirectas, interrupciones del servicio o daños derivados del uso de la plataforma entregada.",
+            "El cliente es responsable del uso final del sitio web y del cumplimiento de normativas legales aplicables a su negocio."
+          ],
+          "list": []
+        },
+        {
+          "title": "8. Modificaciones",
+          "paragraphs": [
+            "ARIXV se reserva el derecho de modificar estos términos en cualquier momento. Las modificaciones serán publicadas en este sitio web."
+          ],
+          "list": []
+        }
+      ],
+      "contact": {
+        "title": "¿Tienes dudas sobre estos términos?",
+        "text": "Puedes contactarnos directamente en",
+        "email": "contacto@arixv.com.mx"
+      }
+    },
+  "privacy": {
+    "badge": "Documento Legal",
+    "title": "Política de Privacidad",
+    "version": "Versión 1.0",
+    "lastUpdated": "Última actualización: Abril 2026",
+    "sections": [
+      {
+        "title": "1. Información que recopilamos",
+        "paragraphs": [
+          "En ARIXV respetamos profundamente tu privacidad. Recopilamos únicamente la información necesaria para proporcionar y mejorar nuestros servicios de diseño e ingeniería digital.",
+          "Esto puede incluir: nombre completo, correo electrónico, detalles de tu proyecto a través de nuestros formularios de contacto, y datos de uso anónimos recopilados mediante cookies para entender cómo navegas por nuestro sitio web."
+        ],
+        "list": []
+      },
+      {
+        "title": "2. Uso de la información",
+        "paragraphs": [
+          "La información que nos proporcionas se utiliza exclusivamente para los siguientes propósitos:"
+        ],
+        "list": [
+          "Comunicación directa: Para responder a tus cotizaciones, consultas o dudas sobre un proyecto.",
+          "Mejora del servicio: Para analizar el tráfico y optimizar la experiencia de usuario en nuestra plataforma.",
+          "Obligaciones legales: Para cumplir con requisitos contables y fiscales pertinentes."
+        ]
+      },
+      {
+        "title": "3. Protección de tus datos",
+        "paragraphs": [
+          "Implementamos medidas de seguridad técnicas y organizativas para proteger tu información contra acceso no autorizado, alteración, divulgación o destrucción. No vendemos, intercambiamos ni transferimos tus datos personales a terceros externos bajo ninguna circunstancia, salvo que sea requerido por la ley."
+        ],
+        "list": []
+      },
+      {
+        "title": "4. Tus derechos",
+        "paragraphs": [
+          "Tienes derecho a acceder, rectificar, cancelar u oponerte al uso de tus datos personales en cualquier momento. Si deseas ejercer alguno de estos derechos o solicitar la eliminación de tu información de nuestros registros, contáctanos directamente."
+        ],
+        "list": []
+      }
+    ],
+    "contact": {
+      "title": "¿Preguntas sobre el manejo de tus datos?",
+      "text": "Escríbenos a nuestro oficial de privacidad en",
+      "email": "contacto@arixv.com.mx"
+    }
   }
 }

@@ -43,7 +43,7 @@ export default function TechMarquee() {
   const duplicatedTech = [...technologies, ...technologies, ...technologies];
 
   return (
-    <div className="relative py-12 overflow-hidden w-full bg-[#DBE9EE]/30">
+    <div className="relative py-12 overflow-hidden w-full bg-[#DBE9EE]/20">
       
       <style>{`
         @keyframes scroll {

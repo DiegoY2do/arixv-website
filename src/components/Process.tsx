@@ -80,7 +80,7 @@ export default function Process({ dict }: ProcessProps) {
   }, []);
 
   return (
-    <section id="proceso" className="relative w-full bg-[#DBE9EE]/30 py-24 lg:py-40">
+    <section id="proceso" className="relative w-full bg-[#DBE9EE]/20 py-24 lg:py-40">
       
       {/* TEXTURA DE CUADRÍCULA */}
       <div className="absolute top-0 left-0 w-full sm:w-3/4 lg:w-1/2 h-full pointer-events-none z-0 bg-[linear-gradient(to_right,#4F6D7A30_1px,transparent_1px),linear-gradient(to_bottom,#4F6D7A30_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_right,black_10%,transparent_100%)]" />

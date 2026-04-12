@@ -33,9 +33,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <Process dict={dict.process} />
       <Testimonials dict={dict.testimonials} />
       <About dict={dict.about} />
-      <Contact dict={dict.contact} />
+      <Contact dict={dict.contact} lang={lang} />
       <FAQ dict={dict.faq} />
-      <Footer dict={dict.footer}/>
     </main>
   );
 }
