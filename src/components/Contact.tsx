@@ -20,8 +20,9 @@ interface ContactProps {
       submittingText: string;
       privacyLabel: string;
       privacyLink: string;
-      successMessage: string; // NUEVO: Mensaje de éxito
-      errorMessage: string;   // NUEVO: Mensaje de error
+      successMessage: string;
+      errorMessage: string;  
+      recaptchaNotice: string; 
     };
     contactInfo: {
       email: string;
