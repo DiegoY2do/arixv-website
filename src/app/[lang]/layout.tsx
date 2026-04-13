@@ -1,11 +1,15 @@
 import { Toaster } from 'sonner';
-import { Metadata } from 'next';
+import WhatsAppButton from "@/components/WhatsAppButton";
+import type { Metadata } from "next";
+import "../globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { getDictionary, Locale } from "@/dictionaries/getDictionary";
 
-// ESTA FUNCIÓN GENERA EL SEO DINÁMICO SEGÚN EL IDIOMA
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
-  const isEs = params.lang === 'es';
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const isEs = lang === 'es';
   
-  // Textos adaptables al idioma
   const title = isEs ? 'ARIXV // Estudio de Desarrollo Web' : 'ARIXV // Web Development Studio';
   const description = isEs
     ? 'Construimos landing pages premium y plataformas complejas. Diseño brutalista y desarrollo web de alto rendimiento.'
@@ -21,7 +25,7 @@ export async function generateMetadata({ params }: { params: { lang: string } })
       siteName: 'ARIXV',
       images: [
         {
-          url: 'https://arixv.com.mx/og-image.jpg', 
+          url: 'https://arixv.com.mx/og-image.jpg',
           width: 1200,
           height: 630,
           alt: 'ARIXV Cover',
@@ -39,11 +43,23 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   };
 }
 
-export default function RootLayout({ children, params }: { children: React.ReactNode, params: { lang: string } }) {
+export default async function RootLayout({
+  children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ lang: string }>;
+}>) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+
   return (
-    <html lang={params.lang}>
+    <html lang={lang} className="scroll-smooth">
       <body>
+        <Navbar lang={lang} dict={dict.navigation} />
         {children}
+        <Footer dict={dict.footer} />
+        <WhatsAppButton phoneNumber="525621434770" />
         <Toaster 
           position="bottom-right" 
           toastOptions={{
