@@ -179,7 +179,10 @@
       "submitText": "Enviar mensaje",
       "submittingText": "ENVIANDO...",
       "privacyLabel": "He leído y acepto la ",
-      "privacyLink": "Política de Privacidad"
+      "privacyLink": "Política de Privacidad",
+      "recaptchaNotice": "Este sitio está protegido por reCAPTCHA y se aplican la Política de Privacidad y Términos de Servicio de Google.",
+      "successMessage": "MENSAJE ENVIADO // PRONTO NOS CONTACTAREMOS",
+      "errorMessage": "ERROR DE CONEXIÓN // REINTENTA MÁS TARDE"
     },
     "contactInfo": {
       "email": "Escríbenos directamente",

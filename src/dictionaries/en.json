@@ -179,7 +179,10 @@
       "submitText": "Send message",
       "submittingText": "SENDING...",
       "privacyLabel": "I have read and agree to the ",
-      "privacyLink": "Privacy Policy"
+      "privacyLink": "Privacy Policy",
+      "recaptchaNotice": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.",
+      "successMessage": "MESSAGE SENT // WE'LL CONTACT YOU SOON",
+      "errorMessage": "CONNECTION ERROR // PLEASE TRY AGAIN LATER"
     },
     "contactInfo": {
       "email": "Email us directly",

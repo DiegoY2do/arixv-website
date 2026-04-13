@@ -34,3 +34,8 @@ html {
   50% { transform: translateX(100%); }
   100% { transform: translateX(100%); }
 }
+
+/* Ocultar el badge flotante de reCAPTCHA v3 */
+.grecaptcha-badge { 
+    visibility: hidden;
+}
