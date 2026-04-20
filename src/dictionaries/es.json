@@ -51,7 +51,7 @@
         "category": "Desarrollo Web",
         "desc": "Plataforma digital inmobiliaria centrada en la experiencia de usuario y la conversión. Nexa ofrece un recorrido visual limpio y minimalista que permite explorar propiedades en venta, dándole total protagonismo a los espacios y facilitando el contacto directo entre el comprador y el vendedor.",
         "image": "/images/portfolio/nexa.jpg",
-        "link": "https://afterhouse.com.mx/"
+        "link": "demos/nexa/index.html"
       },
       {
         "title": "Flow Supplement",
@@ -72,7 +72,7 @@
         "category": "Desarrollo Web",
         "desc": "Diseño de experiencia digital para MUSE Estudio de Belleza, enfocada en trasladar la exclusividad del salón al entorno web a través de una interfaz minimalista, flujos de reserva personalizados para 'Rituales VIP' y una narrativa visual que exalta la esencia y el detalle de cada servicio.",
         "image": "/images/portfolio/muse.jpg",
-        "link": "https://mirodeoncando.fun"
+        "link": "demos/muse/index.html"
       }
     ]
   },

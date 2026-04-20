@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="letra-m.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios | MUSE Estudio de Belleza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1A1A1A',
+                        'brand-light': '#FAF9F6',
+                        'brand-sand': '#D4C5B9',
+                        'brand-charcoal': '#4A4A4A'
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #FAF9F6; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="font-sans text-brand-dark antialiased overflow-x-hidden selection:bg-brand-sand selection:text-brand-dark">
+
+    <header id="navbar"></header>
+
+    <main class="min-h-screen pt-32 pb-20 lg:pt-40 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            
+            <div class="mb-16 lg:mb-24 flex flex-col items-center md:items-start text-center md:text-left border-b border-brand-sand/30 pb-12">
+                <p class="font-sans text-brand-charcoal uppercase tracking-[0.2em] text-xs md:text-sm mb-4">Nuestro Catálogo</p>
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl text-brand-dark mb-6">Servicios<br><span class="italic text-brand-charcoal/80">Exclusivos</span></h1>
+                <p class="font-sans font-light text-brand-charcoal max-w-md text-sm md:text-base">
+                    Un menú diseñado para realzar tu belleza natural a través de técnicas de vanguardia, productos premium y especialistas dedicadas.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4 mb-12 justify-center md:justify-start" id="category-filters">
+                <button class="filter-btn active font-sans text-xs uppercase tracking-widest text-brand-dark border-b border-brand-dark pb-1" data-filter="all">Todos</button>
+                <button class="filter-btn font-sans text-xs uppercase tracking-widest text-brand-charcoal hover:text-brand-dark border-b border-transparent hover:border-brand-dark pb-1 transition-all" data-filter="cabello">Cabello</button>
+                <button class="filter-btn font-sans text-xs uppercase tracking-widest text-brand-charcoal hover:text-brand-dark border-b border-transparent hover:border-brand-dark pb-1 transition-all" data-filter="uñas">Uñas</button>
+                <button class="filter-btn font-sans text-xs uppercase tracking-widest text-brand-charcoal hover:text-brand-dark border-b border-transparent hover:border-brand-dark pb-1 transition-all" data-filter="pestañas">Pestañas</button>
+            </div>
+
+            <div id="services-catalog" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                </div>
+
+        </div>
+    </main>
+
+    <footer id="footer" class="bg-brand-dark pt-12"></footer>
+
+    <script src="js/data/content.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    
+    <script src="js/components/services-page.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.siteData) {
+                renderNavbar();
+                renderFooter();
+                // Inicializamos la vista de catálogo
+                if(typeof renderServicesCatalog === 'function') {
+                    renderServicesCatalog();
+                }
+            } else {
+                console.error("No se pudo cargar la información del sitio.");
+            }
+        });
+    </script>
+</body>
+</html>

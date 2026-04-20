@@ -51,7 +51,7 @@
         "category": "Web Development",
         "desc": "A real estate digital platform focused on user experience and conversion. Nexa delivers a clean, minimal visual journey that allows users to explore properties for sale, giving full prominence to each space while enabling seamless direct contact between buyers and sellers.",
         "image": "/images/portfolio/nexa.jpg",
-        "link": "https://afterhouse.com.mx/"
+        "link": "demos/nexa/index.html"
       },
       {
         "title": "Flow Supplement",
@@ -72,7 +72,7 @@
         "category": "Web Development",
         "desc": "Digital experience design for MUSE Beauty Studio, focused on translating the salon’s exclusivity into the web environment through a minimal interface, personalized booking flows for 'VIP Rituals', and a visual narrative that highlights the essence and detail of each service.",
         "image": "/images/portfolio/muse.jpg",
-        "link": "https://mirodeoncando.fun"
+        "link": "demos/muse/index.html"
       }
     ]
   },

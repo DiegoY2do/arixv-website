@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva tu Sesión | MUSE Estudio de Belleza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="letra-m.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#1A1A1A',
+                        'brand-light': '#FAF9F6',
+                        'brand-sand': '#D4C5B9',
+                        'brand-charcoal': '#4A4A4A'
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body { background-color: #FAF9F6; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Estilos base para inputs que inyectaremos */
+        .custom-checkbox:checked + div,
+        .custom-radio:checked + div {
+            border-color: #1A1A1A !important;
+            background-color: #1A1A1A !important;
+            color: #FAF9F6 !important;
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark antialiased overflow-x-hidden selection:bg-brand-sand selection:text-brand-dark">
+
+    <header id="navbar"></header>
+
+    <main class="min-h-screen pt-32 pb-20 lg:pt-40 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            
+            <div class="mb-12 lg:mb-20">
+                <p class="font-sans text-brand-charcoal uppercase tracking-[0.2em] text-xs font-medium md:text-sm mb-4">Tu Momento</p>
+                <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-dark">Diseña tu experiencia</h1>
+            </div>
+
+            <div id="booking-container"></div>
+
+        </div>
+    </main>
+
+    <div id="booking-modal" class="hidden fixed inset-0 bg-brand-dark/90 backdrop-blur-sm z-[100] flex items-center justify-center p-4 md:p-6 opacity-0 transition-opacity duration-500">
+            <!-- CAJA EXTERNA: Controla el scroll y la animación -->
+            <div class="relative max-w-lg w-full max-h-[90vh] overflow-y-auto scrollbar-hide shadow-2xl scale-95 transition-transform duration-500 rounded-sm" id="modal-scroll-wrapper">
+                
+                <!-- CAJA INTERNA: El Ticket Real (Este es el que se descarga) -->
+                <div class="bg-brand-light p-6 md:p-12 w-full relative" id="modal-content">
+                    
+                    <button id="close-modal" data-html2canvas-ignore="true" class="absolute top-4 right-4 md:top-6 md:right-6 text-brand-charcoal hover:text-brand-dark transition-colors focus:outline-none" aria-label="Cerrar confirmación">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                    
+                    <div class="text-center mb-8 md:mb-10 pb-6 border-b border-brand-sand/30 pt-4 md:pt-0">
+                        <h4 class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-brand-charcoal mb-3">Tu Momento en MUSE</h4>
+                        <h2 class="font-serif text-3xl md:text-4xl text-brand-dark italic">¡Reserva Confirmada!</h2>
+                    </div>
+                    
+                    <div id="modal-details" class="flex flex-col gap-6 font-sans text-brand-dark mb-8"></div>
+                    
+                    <div data-html2canvas-ignore="true" class="flex flex-col gap-4 justify-center border-t border-brand-sand/30 pt-8 mt-6 w-full max-w-sm mx-auto">
+                        <button id="download-ticket" class="w-full border border-brand-dark px-6 py-4 text-xs font-sans uppercase tracking-[0.2em] hover:bg-brand-dark hover:text-brand-light transition-all duration-300 flex items-center justify-center gap-3 focus:outline-none">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            Descargar como Imagen
+                        </button>
+                        <a href="index.html" class="w-full bg-brand-dark text-brand-light px-6 py-4 text-xs font-sans uppercase tracking-[0.2em] hover:bg-brand-dark/90 transition-all duration-300 flex items-center justify-center focus:outline-none">
+                            Volver al Inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <footer id="footer" class="bg-brand-dark pt-12"></footer>
+
+    <script src="js/data/content.js"></script>
+    <script src="js/components/navbar.js"></script>
+    <script src="js/components/footer.js"></script>
+    
+    <script src="js/components/booking-logic.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.siteData) {
+                renderNavbar();
+                renderFooter();
+                // Renderizamos la interfaz de reservas
+                if(typeof renderBookingApp === 'function') {
+                    renderBookingApp();
+                }
+            } else {
+                console.error("No se pudo cargar la información del sitio.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+#slider-container {
+    display: flex;
+    flex-wrap: nowrap; /* Fuerza a que todo esté en una línea horizontal */
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+}
+
+/* Ocultar barra de scroll pero mantener funcionalidad */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Evitar que las imágenes se distorsionen */
+#slider-container img {
+    max-width: none;
+}
