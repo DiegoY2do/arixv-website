@@ -55,20 +55,40 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { name, email, service, message, privacyAccepted } = body;
 
-    if (!name || name.trim().length < 2 || name.length > 100) {
-      return NextResponse.json({ error: 'Nombre inválido.' }, { status: 400 });
-    }
-    if (!email || !isValidEmail(email) || email.length > 100) {
-      return NextResponse.json({ error: 'Correo electrónico inválido.' }, { status: 400 });
-    }
-    if (!message || message.trim().length < 10 || message.length > 2000) {
-      return NextResponse.json({ error: 'El mensaje debe tener entre 10 y 2000 caracteres.' }, { status: 400 });
-    }
-    if (privacyAccepted !== true) {
-      return NextResponse.json({ error: 'Debes aceptar la política de privacidad.' }, { status: 400 });
-    }
+    const { name, email, service, message, privacyAccepted, lang = 'es' } = body;
+
+    // Diccionario de errores bilingüe
+    const errors = {
+      es: {
+        name: 'Nombre inválido.',
+        email: 'Correo electrónico inválido.',
+        message: 'El mensaje debe tener entre 10 y 2000 caracteres.',
+        privacy: 'Debes aceptar la política de privacidad.'
+      },
+      en: {
+        name: 'Invalid name.',
+        email: 'Invalid email address.',
+        message: 'The message must be between 10 and 2000 characters.',
+        privacy: 'You must accept the privacy policy.'
+      }
+    };
+
+    // Seleccionamos el idioma actual (validando que sea 'es' o 'en')
+    const t = errors[lang as keyof typeof errors] || errors.es;
+
+    if (!name || name.trim().length < 2 || name.length > 100) {
+      return NextResponse.json({ error: t.name }, { status: 400 });
+    }
+    if (!email || !isValidEmail(email) || email.length > 100) {
+      return NextResponse.json({ error: t.email }, { status: 400 });
+    }
+    if (!message || message.trim().length < 10 || message.length > 2000) {
+      return NextResponse.json({ error: t.message }, { status: 400 });
+    }
+    if (privacyAccepted !== true) {
+      return NextResponse.json({ error: t.privacy }, { status: 400 });
+    }
 
     const safeName = sanitizeHTML(name.trim());
     const safeEmail = sanitizeHTML(email.trim());
