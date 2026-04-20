@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const { lang } = await params;
   const isEs = lang === 'es';
   
-  const title = isEs ? 'ARIXV // Estudio de Desarrollo Web' : 'ARIXV // Web Development Studio';
+  const title = isEs ? 'ARIXV' : 'ARIXV';
   const description = isEs
     ? 'Construimos landing pages premium y plataformas complejas. Diseño brutalista y desarrollo web de alto rendimiento.'
     : 'We build premium landing pages and complex platforms. Brutalist design and high-performance web development.';

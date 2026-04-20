@@ -47,31 +47,31 @@
     "startProject": "Iniciar un proyecto",
     "projects": [
       {
-        "title": "AFTER HOUSE",
+        "title": "Nexa",
         "category": "Desarrollo Web",
-        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
-        "image": "/images/portfolio/project-1.webp",
+        "desc": "Plataforma digital inmobiliaria centrada en la experiencia de usuario y la conversión. Nexa ofrece un recorrido visual limpio y minimalista que permite explorar propiedades en venta, dándole total protagonismo a los espacios y facilitando el contacto directo entre el comprador y el vendedor.",
+        "image": "/images/portfolio/nexa.jpg",
         "link": "https://afterhouse.com.mx/"
       },
       {
-        "title": "AFTER HOUSE",
-        "category": "Desarrollo Web",
-        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
-        "image": "/images/portfolio/project-1.webp",
-        "link": "https://mirodeoncando.fun"
+        "title": "Flow Supplement",
+        "category": "eCommerce",
+        "desc": "Diseño y desarrollo de eCommerce enfocado en conversión para Flow Supplements Company, optimizando la experiencia de usuario, la navegación de productos y el proceso de compra.",
+        "image": "/images/portfolio/flow.webp",
+        "link": "https://flowsupplementscompany.com/"
       },
       {
-        "title": "AFTER HOUSE",
+        "title": "Bloom preschool",
         "category": "Desarrollo Web",
-        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
-        "image": "/images/portfolio/project-1.webp",
-        "link": "https://mirodeoncando.fun"
+        "desc": "Diseño y desarrollo de experiencia digital para Bloom Preschool, creando una plataforma enfocada en comunicar su propuesta educativa bilingüe, filosofía Reggio Emilia y un entorno de aprendizaje emocional, creativo y multisensorial.",
+        "image": "/images/portfolio/bloom.webp",
+        "link": "https://bloompreschool.com.mx/"
       },
       {
-        "title": "AFTER HOUSE",
+        "title": "Muse",
         "category": "Desarrollo Web",
-        "desc": "Diseño y desarrollo de experiencia digital para la marca de cócteles AFTER HOUSE.",
-        "image": "/images/portfolio/project-1.webp",
+        "desc": "Diseño de experiencia digital para MUSE Estudio de Belleza, enfocada en trasladar la exclusividad del salón al entorno web a través de una interfaz minimalista, flujos de reserva personalizados para 'Rituales VIP' y una narrativa visual que exalta la esencia y el detalle de cada servicio.",
+        "image": "/images/portfolio/muse.jpg",
         "link": "https://mirodeoncando.fun"
       }
     ]
@@ -348,5 +348,11 @@
       "text": "Escríbenos a nuestro oficial de privacidad en",
       "email": "contacto@arixv.com.mx"
     }
-  }
+  },
+  "notFound": {
+  "title": "404",
+  "subtitle": "Página no encontrada",
+  "description": "El recurso que buscas ha sido movido o no existe en el ecosistema ARIXV.",
+  "button": "Regresar al inicio"
+}
 }

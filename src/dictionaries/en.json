@@ -47,31 +47,31 @@
     "startProject": "Start a project",
     "projects": [
       {
-        "title": "AFTER HOUSE",
+        "title": "Nexa",
         "category": "Web Development",
-        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
-        "image": "/images/portfolio/project-1.webp",
+        "desc": "A real estate digital platform focused on user experience and conversion. Nexa delivers a clean, minimal visual journey that allows users to explore properties for sale, giving full prominence to each space while enabling seamless direct contact between buyers and sellers.",
+        "image": "/images/portfolio/nexa.jpg",
         "link": "https://afterhouse.com.mx/"
       },
       {
-        "title": "AFTER HOUSE",
-        "category": "Web Development",
-        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
-        "image": "/images/portfolio/project-1.webp",
-        "link": "https://mirodeoncando.fun"
+        "title": "Flow Supplement",
+        "category": "eCommerce",
+        "desc": "Design and development of a conversion-focused eCommerce experience for Flow Supplements Company, optimizing user experience, product navigation, and the purchasing process.",
+        "image": "/images/portfolio/flow.webp",
+        "link": "https://flowsupplementscompany.com/"
       },
       {
-        "title": "AFTER HOUSE",
+        "title": "Bloom preschool",
         "category": "Web Development",
-        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
-        "image": "/images/portfolio/project-1.webp",
-        "link": "https://mirodeoncando.fun"
+        "desc": "Design and development of a digital experience for Bloom Preschool, creating a platform that communicates its bilingual educational approach, Reggio Emilia philosophy, and a creative, emotional, and multisensory learning environment.",
+        "image": "/images/portfolio/bloom.webp",
+        "link": "https://bloompreschool.com.mx/"
       },
       {
-        "title": "AFTER HOUSE",
+        "title": "Muse",
         "category": "Web Development",
-        "desc": "Design and development of a digital experience for the AFTER HOUSE cocktail brand.",
-        "image": "/images/portfolio/project-1.webp",
+        "desc": "Digital experience design for MUSE Beauty Studio, focused on translating the salon’s exclusivity into the web environment through a minimal interface, personalized booking flows for 'VIP Rituals', and a visual narrative that highlights the essence and detail of each service.",
+        "image": "/images/portfolio/muse.jpg",
         "link": "https://mirodeoncando.fun"
       }
     ]

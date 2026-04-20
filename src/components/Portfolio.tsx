@@ -65,7 +65,7 @@ export default function Portfolio({ dict }: PortfolioProps) {
                 className="group flex flex-col gap-8"
               >
                 {/* 3. GEOMETRÍA ESTRICTA: rounded-none en lugar de rounded-2xl, borde duro */}
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-none bg-[#080b0f] border border-white/10 shadow-2xl transition-colors duration-500 group-hover:border-[#E11D48]/50">
+                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-none bg-[#080b0f]">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -75,7 +75,7 @@ export default function Portfolio({ dict }: PortfolioProps) {
                     sizes="(max-width: 1024px) 100vw, 66vw"
                   />
                   {/* Overlay con matiz rojo sutil en hover */}
-                  <div className="absolute inset-0 bg-[#E11D48]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6">
