@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// ============================================================================
-// 1. UTILIDADES DE SEGURIDAD
-// ============================================================================
-
 // Sanitización básica para evitar inyección XSS en el correo
 const sanitizeHTML = (text: string) => {
   if (!text) return '';
@@ -16,18 +12,15 @@ const sanitizeHTML = (text: string) => {
     .replace(/'/g, '&#039;');
 };
 
-// Validación de formato de email mediante Regex
+
 const isValidEmail = (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
 
-// Sistema súper básico en memoria para Rate Limiting (Evitar spam)
-// Nota: En producción real (ej. Vercel), esto se reinicia con cada cold start.
-// Para un blindaje corporativo, se usa Redis (Upstash) o Vercel KV, pero esto frena ataques simples.
 const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
-const RATE_LIMIT_WINDOW_MS = 60000; // 1 minuto
-const MAX_REQUESTS_PER_WINDOW = 3;  // Máximo 3 correos por IP cada minuto
+const RATE_LIMIT_WINDOW_MS = 60000; 
+const MAX_REQUESTS_PER_WINDOW = 3; 
 
 const checkRateLimit = (ip: string) => {
   const now = Date.now();
@@ -39,39 +32,31 @@ const checkRateLimit = (ip: string) => {
   }
 
   if (now - windowData.lastReset > RATE_LIMIT_WINDOW_MS) {
-    // Si ya pasó el minuto, reiniciamos su contador
     rateLimitMap.set(ip, { count: 1, lastReset: now });
     return true;
   }
 
   if (windowData.count >= MAX_REQUESTS_PER_WINDOW) {
-    return false; // ¡BLOQUEADO por hacer demasiadas peticiones!
+    return false; 
   }
 
   windowData.count += 1;
   return true;
 };
 
-// ============================================================================
-// 2. LA RUTA PRINCIPAL (POST)
-// ============================================================================
-
 export async function POST(request: Request) {
   try {
-    // Capa 1: Seguridad Anti-Spam (Rate Limiting)
     const ip = request.headers.get('x-forwarded-for') || 'ip-desconocida';
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
         { error: 'Demasiadas solicitudes. Por favor, intenta de nuevo en un minuto.' },
-        { status: 429 } // 429 Too Many Requests
+        { status: 429 }
       );
     }
 
-    // Obtenemos los datos de forma segura
     const body = await request.json();
     const { name, email, service, message, privacyAccepted } = body;
 
-    // Capa 2: Validación Estricta
     if (!name || name.trim().length < 2 || name.length > 100) {
       return NextResponse.json({ error: 'Nombre inválido.' }, { status: 400 });
     }
@@ -85,13 +70,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Debes aceptar la política de privacidad.' }, { status: 400 });
     }
 
-    // Capa 3: Sanitización de Datos (Limpiar etiquetas HTML maliciosas)
     const safeName = sanitizeHTML(name.trim());
     const safeEmail = sanitizeHTML(email.trim());
     const safeService = service ? sanitizeHTML(service.trim()) : 'No especificado';
     const safeMessage = sanitizeHTML(message.trim());
 
-    // Configuración del transportador SMTP (Asegúrate de tener esto en tu .env.local)
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
       console.error("FALTAN VARIABLES DE ENTORNO SMTP");
       return NextResponse.json({ error: 'Error interno del servidor.' }, { status: 500 });
@@ -107,7 +90,6 @@ export async function POST(request: Request) {
       },
     });
 
-    // Diseño del correo (Usando las variables limpias: safeName, safeMessage, etc.)
     const mailOptions = {
       from: `"ARIXV Web" <${process.env.SMTP_USER}>`, 
       to: 'contacto@arixv.com.mx', 
@@ -146,7 +128,7 @@ export async function POST(request: Request) {
     
   } catch (error) {
     console.error('Error enviando correo:', error);
-    // IMPORTANTE: Nunca devuelvas el error real al cliente en producción (evita fuga de información)
+  
     return NextResponse.json(
       { error: 'Hubo un problema al procesar tu solicitud. Intenta más tarde.' },
       { status: 500 }

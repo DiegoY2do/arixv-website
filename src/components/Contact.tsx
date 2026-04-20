@@ -200,7 +200,7 @@ function ContactFormContent({ dict, lang }: ContactProps) {
   );
 }
 export default function Contact(props: ContactProps) {
-  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "dummy_key_para_evitar_crash_en_dev";
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LcxcsAsAAAAABhT29hT-aTMtIkWtAFxCn9ABw8p";
 
   return (
     <GoogleReCaptchaProvider reCaptchaKey={siteKey}>
